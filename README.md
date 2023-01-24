@@ -1,13 +1,25 @@
 # Exercise-07-Multiplexer-and-De-multiplexer
-### AIM: To implement 4 X1 multiplexer and 1X4 de multiplexer using verilog and validate its outputs
-### HARDWARE REQUIRED:  – PC, Cyclone II , USB flasher
-### SOFTWARE REQUIRED:   Quartus prime
+
+### AIM: 
+
+To implement 4 X1 multiplexer and 1X4 de multiplexer using verilog and validate its outputs
+
+### HARDWARE REQUIRED: 
+
+ – PC, Cyclone II , USB flasher
+
+### SOFTWARE REQUIRED: 
+
+  Quartus prime
+
 ### THEORY 
 
 ## What are Multiplexer and Demultiplexer?
+
 In-network transmission, both the multiplexer and demultiplexer are combinational circuits. A multiplexer selects an input from several inputs then it is transmitted in the form of a single line. An alternative name of the multiplexer is MUX or data selector. A demultiplexer uses one input signal and generates many. So it is known as Demux or data distributor.
 
 ## What is a Multiplexer?
+
 The multiplexer is a device that has multiple inputs and single line output. The select lines determine which input is connected to the output, and also increase the amount of data that can be sent over a network within a certain time. It is also called a data selector.
 
 The single-pole multi-position switch is a simple example of a non-electronic circuit of the multiplexer, and it is widely used in many electronic circuits. The multiplexer is used to perform high-speed switching and is constructed by electronic components.
@@ -27,6 +39,7 @@ If the control input is changed to 11, then all gates are restricted except the 
 
 
 ## What is Demultiplexer?
+
 De-multiplexer is also a device with one input and multiple output lines. It is used to send a signal to one of the many devices. The main difference between a multiplexer and a de-multiplexer is that a multiplexer takes two or more signals and encodes them on a wire, whereas a de-multiplexer does reverse to what the multiplexer does.
 ![image](https://user-images.githubusercontent.com/36288975/170912606-a30e4b74-1726-4430-b245-2c3c3d9c232d.png)
 Figure 3 De-multiplexer 
@@ -47,42 +60,108 @@ If the control input changes to AB = 10, then all the gates are restricted excep
  
  
 ### Procedure
-/* write all the steps invloved */
 
+Step 1:
 
+Open Quartus II and select new project . Open new file at the verilog.
+
+Step 2:
+
+Module Declaration. Module should have the file name.
+
+Step 3:
+
+Input-Output Delecaration.
+
+Step 4:
+
+Use wire to define the functionality of logic circuits.
+
+Step 5:
+
+End the module.
+
+Step 6:
+
+Run the program and choose RTL viewer to get RTL realization.
 
 ### PROGRAM 
-/*
+
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by: M.PAVITHRA
+RegisterNumber:  22008686
 
+MULTIPLEXER:
 
+module mux(i0,i1,i2,i3,s0,s1,y);
+input i0,i1,i2,i3,s0,s1;
+output y;
+wire p,q,r,s,s0c,s1c;
+not(s0c,s0);
+not(s1c,s1);
+and(p,s0c,s1c,i0);
+and(q,s0c,s1,i1);
+and(r,s0,s1c,i2);
+and(s,s0,s1,i3);
+or(y,p,q,r,s);
+endmodule 
 
+DEMULTIPLEXER:
 
-
+module mux(y0,y1,y2,y3,s0,s1,i);
+input s0,s1,i;
+output y0,y1,y2,y3;
+wire s0c,s1c;
+nor(s0c,s0);
+nor(s1c,s1);
+and(y0,i,s0c,s1c);
+and(y1,i,s0c,s1);
+and(y2,i,s0,s1c);
+and(y3,i,s0,s1);
+endmodule
 
 ### RTL LOGIC  
 
+MULTIPLEXER
 
+![](./M.png)
 
-
-
-
-
+![](./DM.png)
 
 ### TIMING DIGRAMS  
 
+MULTIPLEXER
 
+WHEN I0=1
 
+![](./I%3D0.png)
 
+WHEN I1=1
+
+![](./I%3D1.png)
+
+WHEN I2=1
+
+![](./i2.png)
+
+WHEN I3=1
+
+![](./I3.png)
+
+DEMULTIPLEXER
+
+![](./DEMUX.png)
 
 ### TRUTH TABLE 
 
+MULTIPLEXER
 
+![](./MUX.png)
 
+DEMULTIPLEXER
 
-
+![](./DTT.png)
 
 ### RESULTS 
+
+4 X1 multiplexer and 1X4 de multiplexer has been implemented using verilog and outputs are validated.
