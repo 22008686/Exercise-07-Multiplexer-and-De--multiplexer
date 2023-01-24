@@ -126,6 +126,8 @@ MULTIPLEXER
 
 ![](./M.png)
 
+DEMULTIPLEXER
+
 ![](./DM.png)
 
 ### TIMING DIGRAMS  
